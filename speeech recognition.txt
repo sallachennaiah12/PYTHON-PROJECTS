@@ -1,0 +1,25 @@
+import speech_recognition as sr
+import moviepy.editor as mp
+
+code = mp.VideoFileClip(r"nick.mp4")
+code.audio.write_audiofile(r"a1.wav")
+
+s = sr.Recognizer()
+audio = sr.AudioFile("a1.wav")
+
+with audio as source:
+    file = s.record(source)
+
+text=s.recognize_google(file)
+print(text)	 
+
+4.OUTPUT: 
+
+        MoviePy - Writing audio in a2.wav
+
+chunk:   0%|          | 0/1054 [00:00<?, ?it/s, now=None]
+chunk:  14%|█▎        | 143/1054 [00:00<00:00, 1418.88it/s, now=None]
+chunk:  39%|███▉      | 415/1054 [00:00<00:00, 2170.19it/s, now=None]
+chunk:  60%|██████    | 635/1054 [00:00<00:00, 1886.16it/s, now=None]
+chunk:  79%|███████▊  | 828/1054 [00:00<00:00, 1740.68it/s, now=None]
+chunk:  96%|█████████▌| 1010/1054 [00:00<00:00, 1633.43it/s,now=None]
